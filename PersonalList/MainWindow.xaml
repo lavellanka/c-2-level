@@ -1,0 +1,55 @@
+﻿<!--
+строка x:Class="PersonalList.MainWindow" - здесь создается новый класс MainWindow и соответствующий ему файл кода, 
+                                           куда будет прописываться логика для данного окна приложения.
+строки xmlns:local="clr-namespace:PersonalList" - пространство имен текущего проекта. Через префикс local можно получить 
+                                                  в XAML различные объекты, которые определены в проекте
+-->
+
+<Window x:Class="PersonalList.MainWindow"
+        
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+    xmlns:local="clr-namespace:PersonalList"
+    mc:Ignorable="d"
+        
+    Title="Personal List" Height="475" Width="800">
+    <Grid Margin="0,0,2,0">
+        <Grid x:Name="EmployeeGrid">
+            <Button x:Name="btnPrevE" Content="Предыдущий" HorizontalAlignment="Left" Margin="54,151,0,0" VerticalAlignment="Top" Width="87" Height="18"/>
+            <Button x:Name="btnNextE" Content="Следующий" HorizontalAlignment="Left" Margin="159,151,0,0" VerticalAlignment="Top" Width="87"/>
+            <Button x:Name="btnAddE" Content="Добавить сотрудника" HorizontalAlignment="Left" Margin="546,150,0,0" VerticalAlignment="Top" Width="192"/>
+            <Button x:Name="btnRemoveE" Content="Удалить сотрудника" HorizontalAlignment="Left" Margin="54,182,0,0" VerticalAlignment="Top" Width="192" Height="20"/>
+            <TextBox x:Name="txtSurnameE" HorizontalAlignment="Left" Height="21" Margin="54,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192"/>
+            <TextBox x:Name="txtNameE" HorizontalAlignment="Left" Height="21" Margin="54,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192"/>
+            <ComboBox x:Name="cmbDepartmentE" ItemsSource="{Binding ElementName=cmbDepartmentD, Path=ItemsSource}" HorizontalAlignment="Left" Margin="54,117,0,0" VerticalAlignment="Top" Width="192"/>
+            <Label Content="Сотрудники" HorizontalAlignment="Left" Margin="54,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.978,0.502"/>
+            <Button x:Name="btnAlterE" Content="Изменить сотрудника" HorizontalAlignment="Left" Margin="546,182,0,0" VerticalAlignment="Top" Width="192"/>
+            <TextBox x:Name="txtSurnameNew" HorizontalAlignment="Left" Height="21" Margin="546,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192"/>
+            <TextBox x:Name="txtNameNew" HorizontalAlignment="Left" Height="21" Margin="546,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192"/>
+            <ComboBox x:Name="cmbDepartmentNew" ItemsSource="{Binding ElementName=cmbDepartmentD, Path=ItemsSource}" HorizontalAlignment="Left" Margin="546,117,0,0" VerticalAlignment="Top" Width="192"/>
+            <ListView x:Name="lwEmployee" ItemsSource="{Binding EmployeeList}" HorizontalAlignment="Left" Height="138" Margin="263,64,0,0" VerticalAlignment="Top" Width="265">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Фамилия" Width="100" DisplayMemberBinding="{Binding Surname}"/>
+                        <GridViewColumn Header="Имя" Width="80" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Отдел" Width="80" DisplayMemberBinding="{Binding Department}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid x:Name="DepartmentGrid">
+            <Button x:Name="btnAddD" Content="Добавить отдел" HorizontalAlignment="Left" Margin="54,326,0,0" VerticalAlignment="Top" Width="192"/>
+            <Button x:Name="btnRemoveD" Content="Удалить отдел" HorizontalAlignment="Left" Margin="269,273,0,0" VerticalAlignment="Top" Width="143" Height="100"/>
+            <ComboBox x:Name="cmbDepartmentD" ItemsSource="{Binding DepartmentList}" HorizontalAlignment="Left" Margin="54,273,0,0" VerticalAlignment="Top" Width="192"/>
+            <Label Content="Отделы" HorizontalAlignment="Left" Margin="54,242,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.978,0.502"/>
+            <TextBox x:Name="txtDepartmentNew" HorizontalAlignment="Left" Height="21" Margin="54,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+            <Button x:Name="btnAlterD" Content="Изменить отдел" HorizontalAlignment="Left" Margin="54,353,0,0" VerticalAlignment="Top" Width="192"/>
+
+        </Grid>
+    </Grid>
+
+</Window>
